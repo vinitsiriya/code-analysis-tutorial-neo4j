@@ -39,7 +39,7 @@ There are two types of dependency analysis for classes.
 	> We are not covering this yet with our tool. As we find dependency based on call graph more useful
 
 - Dependency based on Call Graph 
-	> The most important part of this analysis is that we can know which is class consumer of which class and which class is giving service to which class. This may help us to know about the conversation happening between them
+	> The most important part of this analysis is that we can know which class is consumer of which class and which class is giving service to which class. This may help us to know about the conversation happening between them
 
 Here are the steps for creating  class dependency  using call graph.
 ## Creating  Class Dependency Nodes in Neo4j
