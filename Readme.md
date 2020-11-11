@@ -134,3 +134,27 @@ delete r
 ```
 
 Your data with class dependency diagram is ready for analysis. Enjoy !
+
+
+## Class Hierarchy Analysis using Class Dependency Nodes in Neo4j
+
+After creating class dependency diagram in Neo4j you are ready for obtaining more knowledge about the code structure. Let's get started with subgraph of class dependency diagram.
+
+## Subgraph in Class Depedency 
+
+A subgraph here represent how a particular class is dependent on classes it use. Lets quickly see how to get it done in Neo4j.
+
+```
+MATCH (p:Class) where p.name contains "AnalyzerDriver"
+
+CALL apoc.path.subgraphAll(p, {	relationshipFilter: "METHOD_CALLS_TO",    minLevel: 0,    maxLevel: 1})
+YIELD nodes, relationships
+
+UNWIND relationships as rel
+RETURN startNode(rel),rel,endNode(rel)
+```
+> **Extra Notes**
+>   *  We are using **UNWIND** so that it can support Bloom visualization also.
+
+I will be adding more queries soon. Till then, Enjoy the power of code analysis. 
+
